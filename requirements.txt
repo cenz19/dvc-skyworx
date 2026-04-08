@@ -1,0 +1,6 @@
+pandas==2.2.2
+numpy
+optbinning==0.20.1
+scikit_learn==1.5.1
+joblib
+dvc
