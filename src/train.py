@@ -1,4 +1,5 @@
 import joblib
+import yaml
 import pandas as pd
 from optbinning import BinningProcess, Scorecard
 from sklearn.linear_model import LogisticRegression
@@ -7,6 +8,11 @@ TRAIN_PATH = "data/train.csv"
 MODEL_PATH = "models/scorecard.pkl"
 
 TARGET = "target"
+
+with open("params.yaml", "r") as f:
+    params = yaml.safe_load(f)
+
+max_iter = params["model"]["max_iter"]
 
 df = pd.read_csv(TRAIN_PATH)
 
@@ -23,7 +29,7 @@ binning_process = BinningProcess(
 )
 
 # model
-estimator = LogisticRegression(max_iter=1000)
+estimator = LogisticRegression(max_iter=max_iter)
 
 # scorecard
 scorecard = Scorecard(

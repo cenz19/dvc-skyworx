@@ -12,6 +12,8 @@ stages:
     deps:
     - data/train.csv
     - src/train.py
+    params:
+    - model.max_iter
     outs:
     - models/scorecard.pkl
   evaluate:
