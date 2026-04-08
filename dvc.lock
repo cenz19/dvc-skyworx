@@ -5,8 +5,8 @@ stages:
     deps:
     - path: data/data.csv
       hash: md5
-      md5: 7c6f0829aef251fc51d33085d6d375ff
-      size: 8502520
+      md5: e75b5d8ce3b8f40b6f99d1202616ede2
+      size: 8501931
     - path: src/prepare.py
       hash: md5
       md5: 86643a83848b95dcf085171c9a031471
@@ -14,42 +14,42 @@ stages:
     outs:
     - path: data/test.csv
       hash: md5
-      md5: 6ef265769c3531c8b58bae5bff2e5231
-      size: 1403092
+      md5: 7187b0d7ffd54616a4f3943b11ed9101
+      size: 1403033
     - path: data/train.csv
       hash: md5
-      md5: 8f5c002952975b5087950157a472d1ed
-      size: 5667134
+      md5: df890deaaf006914b08f118ccdd4f8b4
+      size: 5666707
   train:
     cmd: python src/train.py
     deps:
     - path: data/train.csv
       hash: md5
-      md5: 8f5c002952975b5087950157a472d1ed
-      size: 5667134
+      md5: df890deaaf006914b08f118ccdd4f8b4
+      size: 5666707
     - path: src/train.py
       hash: md5
       md5: e930535644feba435da099ae621ea295
       size: 1005
     params:
       params.yaml:
-        model.max_iter: 2000
+        model.max_iter: 1100
     outs:
     - path: models/scorecard.pkl
       hash: md5
-      md5: 0a54543c6c9afb17ee7fa0810b9b9807
-      size: 3448357
+      md5: 08a14b2c7d62d4f8b8f081df69cedbe9
+      size: 3448197
   evaluate:
     cmd: python src/evaluate.py
     deps:
     - path: data/test.csv
       hash: md5
-      md5: 6ef265769c3531c8b58bae5bff2e5231
-      size: 1403092
+      md5: 7187b0d7ffd54616a4f3943b11ed9101
+      size: 1403033
     - path: models/scorecard.pkl
       hash: md5
-      md5: 0a54543c6c9afb17ee7fa0810b9b9807
-      size: 3448357
+      md5: 08a14b2c7d62d4f8b8f081df69cedbe9
+      size: 3448197
     - path: src/evaluate.py
       hash: md5
       md5: de0927d12c3769b44f9b38e7d3b90595
@@ -57,5 +57,5 @@ stages:
     outs:
     - path: metrics.json
       hash: md5
-      md5: 6cdbb3366da03323aa998ee7cc996b45
-      size: 913
+      md5: 1734453b086ba13b432f180b8c530be7
+      size: 912
